@@ -1,0 +1,4 @@
+
+-- ./gnatver.apk
+pragma source_file_name(gnatver, spec_file_name => "gnatver.ads");
+pragma source_file_name(gnatver, body_file_name => "gnatver.adb");
