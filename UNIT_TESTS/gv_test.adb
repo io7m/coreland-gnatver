@@ -9,7 +9,7 @@ begin
   gnatver.decode (version, ada.command_line.argument (1));
   io.put_line (ada.command_line.argument (1));
   io.put_line
-    (gnatver.variant_t'image (version.variant) & " " &
+    ("-- " & gnatver.variant_t'image (version.variant) & " " &
      natural'image (version.major) & " " &
      natural'image (version.minor) & " " &
      natural'image (version.patch));

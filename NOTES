@@ -1,0 +1,17 @@
+FreeBSD FSF (gcc) GNAT has version strings of the form:
+
+  GNAT Version: 4.2.3
+
+The same compiler on Debian simply has:
+
+  4.2.3
+
+The various different versions of GNAT from AdaCore have
+strings such as:
+
+  GNAT Version: GPL 2008 (20080521)
+  GNAT Version: GAP 2005 (20050101)
+
+The search patterns used in the package assume that the
+Debian version string differences will be repeated across
+any AdaCore compiler.
