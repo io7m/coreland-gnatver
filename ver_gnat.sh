@@ -4,13 +4,13 @@
 cat <<EOF
 -- auto generated, do not edit
 
-with gnat.compiler_version;
-with gnat.regpat;
-with ada.text_io;
-with ada.strings.fixed;
-with ada.strings;
+with GNAT.Compiler_Version;
+with GNAT.Regpat;
+with Ada.Text_IO;
+with Ada.Strings.Fixed;
+with Ada.Strings;
 
-procedure ver_gnat is
+procedure ver_GNAT is
 
   --
   -- gnatver.ads
@@ -31,20 +31,20 @@ EOF
 
 cat <<EOF
 
-  -- ver_gnat.adb
+  -- ver_GNAT.adb
 
   function to_string (num : integer) return string is
   begin
-    return ada.strings.fixed.trim (integer'image (num), ada.strings.left);
+    return Ada.Strings.Fixed.Trim (integer'Image (num), Ada.Strings.Left);
   end to_string;
 
   version : version_t;
 begin
   decode_current (version);
-  ada.text_io.put_line
-    (variant_t'image (version.variant) & " " &
+  Ada.Text_IO.Put_Line
+    (variant_t'Image (version.variant) & " " &
      to_string (version.major) & "." &
      to_string (version.minor) & "." &
      to_string (version.patch));
-end ver_gnat;
+end ver_GNAT;
 EOF
