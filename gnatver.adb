@@ -1,10 +1,10 @@
-with gnat.compiler_version;
-with gnat.regpat;
+with GNAT.Compiler_Version;
+with GNAT.Regpat;
 
 package body gnatver is
-  package ver is new gnat.compiler_version;
+  package ver is new GNAT.Compiler_Version;
 
-  use type gnat.regpat.match_location;
+  use type GNAT.Regpat.Match_Location;
 
   regex_FSF : constant string := "^(GNAT Version: ){0,1}([0-9]).([0-9]).([0-9])";
   regex_GPL : constant string := "^(GNAT Version: ){0,1}GPL [0-9]+ \(([0-9]{4})([0-9]{2})([0-9]{2})\)";
@@ -15,54 +15,54 @@ package body gnatver is
     (version : out version_t;
      image   : in string)
   is
-    matches : gnat.regpat.match_array (0 .. 4);
+    matches : GNAT.Regpat.Match_Array (0 .. 4);
   begin
     -- check FSF
-    gnat.regpat.match
+    GNAT.Regpat.Match
       (expression => regex_FSF,
        data       => image,
        matches    => matches);
-    if matches (0) /= gnat.regpat.no_match then
+    if matches (0) /= GNAT.Regpat.No_Match then
       version.variant := GNAT_FSF;
-      version.major   := natural'value (image (matches (2).first ..  matches (2).last));
-      version.minor   := natural'value (image (matches (3).first ..  matches (3).last));
-      version.patch   := natural'value (image (matches (4).first ..  matches (4).last));
+      version.major   := natural'Value (image (matches (2).First ..  matches (2).Last));
+      version.minor   := natural'Value (image (matches (3).First ..  matches (3).Last));
+      version.patch   := natural'Value (image (matches (4).First ..  matches (4).Last));
     end if;
 
     -- check GPL
-    gnat.regpat.match
+    GNAT.Regpat.Match
       (expression => regex_GPL,
        data       => image,
        matches    => matches);
-    if matches (0) /= gnat.regpat.no_match then
+    if matches (0) /= GNAT.Regpat.No_Match then
       version.variant := GNAT_GPL;
-      version.major   := natural'value (image (matches (2).first ..  matches (2).last));
-      version.minor   := natural'value (image (matches (3).first ..  matches (3).last));
-      version.patch   := natural'value (image (matches (4).first ..  matches (4).last));
+      version.major   := natural'Value (image (matches (2).First ..  matches (2).Last));
+      version.minor   := natural'Value (image (matches (3).First ..  matches (3).Last));
+      version.patch   := natural'Value (image (matches (4).First ..  matches (4).Last));
     end if;
 
     -- check GAP
-    gnat.regpat.match
+    GNAT.Regpat.Match
       (expression => regex_GAP,
        data       => image,
        matches    => matches);
-    if matches (0) /= gnat.regpat.no_match then
+    if matches (0) /= GNAT.Regpat.No_Match then
       version.variant := GNAT_GAP;
-      version.major   := natural'value (image (matches (2).first ..  matches (2).last));
-      version.minor   := natural'value (image (matches (3).first ..  matches (3).last));
-      version.patch   := natural'value (image (matches (4).first ..  matches (4).last));
+      version.major   := natural'Value (image (matches (2).First ..  matches (2).Last));
+      version.minor   := natural'Value (image (matches (3).First ..  matches (3).Last));
+      version.patch   := natural'Value (image (matches (4).First ..  matches (4).Last));
     end if;
 
     -- check Pro
-    gnat.regpat.match
+    GNAT.Regpat.Match
       (expression => regex_Pro,
        data       => image,
        matches    => matches);
-    if matches (0) /= gnat.regpat.no_match then
+    if matches (0) /= GNAT.Regpat.No_Match then
       version.variant := GNAT_PRO;
-      version.major   := natural'value (image (matches (2).first ..  matches (2).last));
-      version.minor   := natural'value (image (matches (3).first ..  matches (3).last));
-      version.patch   := natural'value (image (matches (4).first ..  matches (4).last));
+      version.major   := natural'Value (image (matches (2).First ..  matches (2).Last));
+      version.minor   := natural'Value (image (matches (3).First ..  matches (3).Last));
+      version.patch   := natural'Value (image (matches (4).First ..  matches (4).Last));
     end if;
   end decode;
 
@@ -71,7 +71,7 @@ package body gnatver is
   begin
     decode
       (version => version,
-       image   => ver.version);
+       image   => ver.Version);
   end decode_current;
 
 end gnatver;
