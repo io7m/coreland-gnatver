@@ -28,17 +28,17 @@ EOF
 
 cat <<EOF
   -- ver_GNAT.adb
-  function to_string (num : integer) return string is
+  function To_String (num : Integer) return String is
   begin
-    return Ada.Strings.Fixed.Trim (integer'Image (num), Ada.Strings.Left);
-  end to_string;
+    return Ada.Strings.Fixed.Trim (Integer'Image (num), Ada.Strings.Left);
+  end To_String;
   version : version_t;
 begin
   decode_current (version);
   Ada.Text_IO.Put_Line
     (variant_t'Image (version.variant) & " " &
-     to_string (version.major) & "." &
-     to_string (version.minor) & "." &
-     to_string (version.patch));
+     To_String (version.major) & "." &
+     To_String (version.minor) & "." &
+     To_String (version.patch));
 end ver_GNAT;
 EOF

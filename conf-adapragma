@@ -24,7 +24,7 @@ pragma Restrictions (No_Fixed_Point);
 pragma Restrictions (No_Floating_Point);
 -- pragma Restrictions (No_IO);
 pragma Restrictions (No_Implicit_Heap_Allocations);
-pragma Restrictions (No_Local_Allocators);
+--pragma Restrictions (No_Local_Allocators);
 -- pragma Restrictions (No_Local_Timing_Events);
 pragma Restrictions (No_Nested_Finalization);
 pragma Restrictions (No_Obsolescent_Features);

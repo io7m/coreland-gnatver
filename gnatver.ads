@@ -9,14 +9,14 @@ package gnatver is
 
   type version_t is record
     variant : variant_t := GNAT_UNKNOWN;
-    major   : natural   := 0;
-    minor   : natural   := 0;
-    patch   : natural   := 0;
+    major   : Natural   := 0;
+    minor   : Natural   := 0;
+    patch   : Natural   := 0;
   end record;
 
   procedure decode
     (version : out version_t;
-     image   : in string);
+     image   : in String);
 
   procedure decode_current
     (version : out version_t);
