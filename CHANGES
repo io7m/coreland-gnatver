@@ -2,3 +2,4 @@
 20090215 code: strict style checks.
 20090215 code: ver_gnat.sh emits code to pass strict style checks.
 20090611 code: more style check updates.
+20090611 version: gnatver 0.0.4
