@@ -1,16 +1,16 @@
 with Ada.Text_IO;
 with Ada.Command_Line;
-with gnatver;
+with Gnatver;
 
 procedure gv_test is
   package IO renames Ada.Text_IO;
-  version : gnatver.version_t;
+  Version : Gnatver.Version_t;
 begin
-  gnatver.decode (version, Ada.Command_Line.Argument (1));
+  Gnatver.Decode (Version, Ada.Command_Line.Argument (1));
   IO.Put_Line (Ada.Command_Line.Argument (1));
   IO.Put_Line
-    ("-- " & gnatver.variant_t'Image (version.variant) & " " &
-     natural'Image (version.major) & " " &
-     natural'Image (version.minor) & " " &
-     natural'Image (version.patch));
+    ("-- " & Gnatver.Variant_t'Image (Version.Variant) & " " &
+     Natural'Image (Version.Major) & " " &
+     Natural'Image (Version.Minor) & " " &
+     Natural'Image (Version.Patch));
 end gv_test;

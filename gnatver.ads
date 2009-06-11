@@ -1,24 +1,24 @@
-package gnatver is
+package Gnatver is
 
-  type variant_t is
+  type Variant_t is
     (GNAT_UNKNOWN,
      GNAT_FSF,
      GNAT_GPL,
      GNAT_PRO,
      GNAT_GAP);
 
-  type version_t is record
-    variant : variant_t := GNAT_UNKNOWN;
-    major   : Natural   := 0;
-    minor   : Natural   := 0;
-    patch   : Natural   := 0;
+  type Version_t is record
+    Variant : Variant_t := GNAT_UNKNOWN;
+    Major   : Natural   := 0;
+    Minor   : Natural   := 0;
+    Patch   : Natural   := 0;
   end record;
 
-  procedure decode
-    (version : out version_t;
-     image   : in String);
+  procedure Decode
+    (Version : out Version_t;
+     Image   : in String);
 
-  procedure decode_current
-    (version : out version_t);
+  procedure Decode_Current
+    (Version : out Version_t);
 
-end gnatver;
+end Gnatver;
