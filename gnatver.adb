@@ -1,7 +1,7 @@
 with GNAT.Compiler_Version;
 with GNAT.Regpat;
 
-package body Gnatver is
+package body GNATver is
   package Ver is new GNAT.Compiler_Version;
 
   use type GNAT.Regpat.Match_Location;
@@ -74,4 +74,4 @@ package body Gnatver is
        Image   => Ver.Version);
   end Decode_Current;
 
-end Gnatver;
+end GNATver;

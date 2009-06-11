@@ -1,5 +1,5 @@
 #!/bin/sh
-# create standalone copy of gnatver
+# create standalone copy of GNATver
 
 cat <<EOF
 -- auto generated, do not edit
@@ -8,14 +8,14 @@ with GNAT.Regpat;
 with Ada.Text_IO;
 with Ada.Strings.Fixed;
 with Ada.Strings;
-procedure ver_GNAT is
+procedure Ver_GNAT is
   --
   -- gnatver.ads
   --
 EOF
 
 cat gnatver.ads | \
-  sed 's/end gnatver;//g;' | sed 's/package gnatver is//g;' | grep -v '^ *$'
+  sed 's/end GNATver;//g;' | sed 's/package GNATver is//g;' | grep -v '^ *$'
 
 cat <<EOF
   --
@@ -23,22 +23,22 @@ cat <<EOF
   --
 EOF
 
-./grep-range 'package body gnatver is' 'end gnatver;' gnatver.adb | \
-  tail -n +2 | sed 's/end gnatver;//g' | grep -v '^ *$'
+./grep-range 'package body GNATver is' 'end GNATver;' gnatver.adb | \
+  tail -n +2 | sed 's/end GNATver;//g' | grep -v '^ *$'
 
 cat <<EOF
-  -- ver_GNAT.adb
-  function To_String (num : Integer) return String is
+  -- ver_gnat.adb
+  function To_String (Number : Integer) return String is
   begin
-    return Ada.Strings.Fixed.Trim (Integer'Image (num), Ada.Strings.Left);
+    return Ada.Strings.Fixed.Trim (Integer'Image (Number), Ada.Strings.Left);
   end To_String;
-  version : version_t;
+  Version : Version_t;
 begin
-  decode_current (version);
+  Decode_Current (Version);
   Ada.Text_IO.Put_Line
-    (variant_t'Image (version.variant) & " " &
-     To_String (version.major) & "." &
-     To_String (version.minor) & "." &
-     To_String (version.patch));
-end ver_GNAT;
+    (Variant_t'Image (Version.Variant) & " " &
+     To_String (Version.Major) & "." &
+     To_String (Version.Minor) & "." &
+     To_String (Version.Patch));
+end Ver_GNAT;
 EOF

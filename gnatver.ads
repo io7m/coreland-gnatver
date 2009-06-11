@@ -1,4 +1,4 @@
-package Gnatver is
+package GNATver is
 
   type Variant_t is
     (GNAT_UNKNOWN,
@@ -21,4 +21,4 @@ package Gnatver is
   procedure Decode_Current
     (Version : out Version_t);
 
-end Gnatver;
+end GNATver;
